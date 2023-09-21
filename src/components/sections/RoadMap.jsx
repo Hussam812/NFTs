@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import styled from "styled-components";
 import { DrawSvg } from "../";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
 
 const Section = styled.section`
   width: 100vw;
@@ -45,7 +47,31 @@ const Items = styled.ul`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: lightblue;
+
+  & > *:nth-of-type(2n + 1) {
+    justify-content: strat;
+
+    div {
+      border-radius: 50px 0 50px 0;
+      text-align: right;
+    }
+
+    p {
+      border-radius: 40px 0 40px 0;
+    }
+  }
+
+  & > *:nth-of-type(2n) {
+    justify-content: end;
+
+    div {
+      border-radius: 0 50px 0 50px;
+      text-align: left;
+    }
+    p {
+      border-radius: 0 40px 0 40px;
+    }
+  }
 `;
 const Item = styled.li`
   width: 100%;
@@ -66,11 +92,23 @@ const Box = styled.p`
   padding: 1rem;
   position: relative;
 `;
-const SubTitle = styled.span``;
-const Text = styled.span``;
-const RoadMapItem = ({ title, subtext }) => {
+const SubTitle = styled.span`
+  display: block;
+  font-size: ${(props) => props.theme.fontxl};
+  text-transform: capitalize;
+  color: ${(props) => props.theme.text};
+`;
+const Text = styled.span`
+  display: block;
+  font-size: ${(props) => props.theme.fontsm};
+  text-transform: capitalize;
+  color: ${(props) => props.theme.text};
+  font-weight: 400;
+  margin: 0.5rem 0;
+`;
+const RoadMapItem = ({ title, subtext, addToRefs }) => {
   return (
-    <Item>
+    <Item ref={addToRefs}>
       <ItemContainer>
         <Box>
           <SubTitle>{title}</SubTitle>
@@ -81,6 +119,38 @@ const RoadMapItem = ({ title, subtext }) => {
   );
 };
 const RoadMap = () => {
+  const revealRefs = useRef([]);
+  revealRefs.current = [];
+  gsap.registerPlugin(ScrollTrigger);
+  const addToRefs = (el) => {
+    if (el && !revealRefs.current.includes(el)) {
+      revealRefs.current.push(el);
+    }
+  };
+
+  useLayoutEffect(() => {
+    let t1 = gsap.timeline();
+    revealRefs.current.forEach((el, index) => {
+      t1.fromTo(
+        el.childNodes[0],
+        {
+          y: "0",
+        },
+        {
+          y: "-30%",
+          scrollTrigger: {
+            id: `section-${index + 1}`,
+            trigger: el,
+            start: "top center+=200px",
+            end: "bottom center",
+            scrub: true,
+            /* markers: true */
+          },
+        }
+      );
+    });
+    return () => {};
+  }, []);
   return (
     <Section>
       <Title>RoadMap</Title>
@@ -89,12 +159,33 @@ const RoadMap = () => {
           <DrawSvg />
         </SavgContainer>
         <Items>
-          <RoadMapItem title="this title" subtext="this sub title" />
-          <RoadMapItem title="this title" subtext="this sub title" />
-          <RoadMapItem title="this title" subtext="this sub title" />
-          <RoadMapItem title="this title" subtext="this sub title" />
-          <RoadMapItem title="this title" subtext="this sub title" />
-          <RoadMapItem title="this title" subtext="this sub title" />
+          <Item> &nbsp; </Item>
+
+          <RoadMapItem
+            addToRefs={addToRefs}
+            title="Grand Opening"
+            subtext="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
+          />
+          <RoadMapItem
+            addToRefs={addToRefs}
+            title="Grand Benefits"
+            subtext="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
+          />
+          <RoadMapItem
+            addToRefs={addToRefs}
+            title="Early Acces"
+            subtext="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
+          />
+          <RoadMapItem
+            addToRefs={addToRefs}
+            title="New Merch"
+            subtext="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
+          />
+          <RoadMapItem
+            addToRefs={addToRefs}
+            title="Hold Ranking"
+            subtext="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
+          />
         </Items>
       </Container>
     </Section>
