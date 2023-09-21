@@ -37,6 +37,7 @@ const SubTitle = styled.h3`
   align-self: flex-start;
 `;
 const ButtonContainer = styled.div`
+  width: 80%;
   align-self: flex-start;
 `;
 

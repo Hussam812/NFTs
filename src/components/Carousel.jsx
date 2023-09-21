@@ -25,7 +25,7 @@ import Img10 from "../assets/bighead-9.svg";
 import Arrow from "../assets/Arrow.svg";
 const Container = styled.div`
   width: 25vw;
-  height: 40vh;
+  height: 70vh;
 
   .swiper {
     width: 100%;
