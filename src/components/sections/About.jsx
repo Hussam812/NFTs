@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { Carousel } from "../";
 
 const Section = styled.section`
   min-height: 100vh;
   width: 100%;
   background-color: ${(props) => props.theme.text};
-  color: ${(props) => props.theme.body};
-
+  /*   color: ${(props) => props.theme.body};
+ */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,7 +36,9 @@ const About = () => {
   return (
     <Section>
       <Container>
-        <Box>Carousel</Box>
+        <Box>
+          <Carousel />
+        </Box>
         <Box>Text</Box>
       </Container>
     </Section>
