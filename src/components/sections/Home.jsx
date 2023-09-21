@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import { styled, keyframes } from "styled-components";
 import { TypeWriterText, CoverVideo } from "../";
 import RoundTextBlack from "../../assets/Rounded-Text-Black.png";
 import RoundTextWhite from "../../assets/Rounded-Text-White.png";
