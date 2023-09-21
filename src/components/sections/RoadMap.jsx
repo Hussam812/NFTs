@@ -37,8 +37,49 @@ const SavgContainer = styled.div`
   align-items: center;
 `;
 
-const Items = styled.ul``;
-
+const Items = styled.ul`
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightblue;
+`;
+const Item = styled.li`
+  width: 100%;
+  height: 100%;
+  display: flex;
+`;
+const ItemContainer = styled.div`
+  width: 40%;
+  height: fit-content;
+  padding: 1rem;
+  border: 3px solid ${(props) => props.theme.text};
+`;
+const Box = styled.p`
+  height: fit-content;
+  background-color: ${(props) => props.theme.carouselColor};
+  color: ${(props) => props.theme.text};
+  border: 1px solid ${(props) => props.theme.text};
+  padding: 1rem;
+  position: relative;
+`;
+const SubTitle = styled.span``;
+const Text = styled.span``;
+const RoadMapItem = ({ title, subtext }) => {
+  return (
+    <Item>
+      <ItemContainer>
+        <Box>
+          <SubTitle>{title}</SubTitle>
+          <Text>{subtext}</Text>
+        </Box>
+      </ItemContainer>
+    </Item>
+  );
+};
 const RoadMap = () => {
   return (
     <Section>
@@ -48,12 +89,12 @@ const RoadMap = () => {
           <DrawSvg />
         </SavgContainer>
         <Items>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-          <li>5</li>
-          <li>6</li>
+          <RoadMapItem title="this title" subtext="this sub title" />
+          <RoadMapItem title="this title" subtext="this sub title" />
+          <RoadMapItem title="this title" subtext="this sub title" />
+          <RoadMapItem title="this title" subtext="this sub title" />
+          <RoadMapItem title="this title" subtext="this sub title" />
+          <RoadMapItem title="this title" subtext="this sub title" />
         </Items>
       </Container>
     </Section>
