@@ -6,6 +6,7 @@ export { default as Button } from "./Button";
 export { default as TypeWriterText } from "./TypeWriterText";
 export { default as CoverVideo } from "./CoverVideo";
 export { default as Carousel } from "./Carousel";
+export { default as DrawSvg } from "./DrawSvg";
 
 export { default as Home } from "./sections/Home";
 export { default as RoadMap } from "./sections/RoadMap";
