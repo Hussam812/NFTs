@@ -1,6 +1,8 @@
 import React from "react";
-import styled from "styled-components";
-import TypeWriterText from "../TypeWriterText";
+import styled, { keyframes } from "styled-components";
+import { TypeWriterText, CoverVideo } from "../";
+import RoundTextBlack from "../../assets/Rounded-Text-Black.png";
+import RoundTextWhite from "../../assets/Rounded-Text-White.png";
 
 const Section = styled.section`
   min-height: ${(props) => `calc(100vh - ${props.theme.navHeight})`};
@@ -12,7 +14,7 @@ const Container = styled.div`
   width: 75%;
   min-height: 80vh;
   margin: 0 auto;
-  background-color: lightblue;
+  /* background-color: lightblue; */
   display: flex;
   justify-content: center;
 
@@ -26,6 +28,44 @@ const Box = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+const rotate = keyframes`
+  100%{
+    transform: rotate(1turn)
+  }
+`;
+
+const Round = styled.div`
+  position: absolute;
+  bottom: 2rem;
+  right: 90%;
+  width: 6rem;
+  height: 6rem;
+  border: 1px solid ${(props) => props.theme.text};
+  border-radius: 50%;
+  img {
+    width: 100%;
+    height: auto;
+    animation: ${rotate} 6s linear infinite reverse;
+  }
+`;
+const Circle = styled.span`
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: ${(props) => props.theme.text};
+  font-size: ${(props) => props.theme.fontxl};
+
+  color: ${(props) => props.theme.body};
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
 const Home = () => {
   return (
     <Section>
@@ -34,8 +74,12 @@ const Home = () => {
           <TypeWriterText />
         </Box>
         <Box>
-          <h2>Video</h2>
+          <CoverVideo />
         </Box>
+        <Round>
+          <Circle>&#x2193;</Circle>
+          <img src={RoundTextBlack} alt="NFT" />
+        </Round>
       </Container>
     </Section>
   );
