@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Logo from "./";
+import { Button, Logo, Menu } from "./";
 
 const Section = styled.section`
   width: 100vw;
@@ -20,8 +20,8 @@ const Navigation = () => {
     <Section>
       <NavBar>
         <Logo />
-
-        <h2>button</h2>
+        <Menu />
+        <Button text="Contact Wallet" link="https:google.com" />
       </NavBar>
     </Section>
   );
