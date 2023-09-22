@@ -2,6 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { Banner, Logo, Menu } from "./";
 import Facebook from "../icons/Facebook";
+import Instagram from "../icons/Instagram";
+import Twitter from "../icons/Twitter";
+import LinkedIn from "../icons/LinkedIn";
 
 const Section = styled.section`
   min-height: 100vh;
@@ -27,6 +30,7 @@ const Container = styled.div`
 `;
 
 const Left = styled.div`
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,6 +51,7 @@ const IconList = styled.div`
 `;
 
 const MenuItems = styled.ul`
+  flex: 1;
   list-style: noen;
   width: 50%;
   display: grid;
@@ -71,7 +76,12 @@ const Item = styled.li`
     width: 100%;
   }
 `;
-
+const Bottom = styled.div`
+  width: 75%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+`;
 const Footer = () => {
   return (
     <Section>
@@ -84,16 +94,16 @@ const Footer = () => {
               <Facebook />
             </a>
 
-            <a href="https://facebook.com" target="_blank" rel="noopener">
-              <Facebook />
+            <a href="https://instagram.com" target="_blank" rel="noopener">
+              <Instagram />
             </a>
 
-            <a href="https://facebook.com" target="_blank" rel="noopener">
-              <Facebook />
+            <a href="https://twitter.com" target="_blank" rel="noopener">
+              <Twitter />
             </a>
 
-            <a href="https://facebook.com" target="_blank" rel="noopener">
-              <Facebook />
+            <a href="https://linkedin.com" target="_blank" rel="noopener">
+              <LinkedIn />
             </a>
           </IconList>
         </Left>
@@ -106,6 +116,12 @@ const Footer = () => {
           <Item>Faq</Item>
         </MenuItems>
       </Container>
+      <Bottom>
+        <span>
+          &copy; {new Date().getFullYear()} Weirdos Club. allrights reserved.
+        </span>
+        <span>Made with &#10084; by Me following "CODEBUCKS"</span>
+      </Bottom>
     </Section>
   );
 };
