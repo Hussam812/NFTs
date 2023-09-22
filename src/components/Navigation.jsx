@@ -17,7 +17,7 @@ const NavBar = styled.nav`
 `;
 const Navigation = () => {
   return (
-    <Section>
+    <Section id="navigation">
       <NavBar>
         <Logo />
         <Menu />

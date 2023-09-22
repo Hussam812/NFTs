@@ -152,7 +152,7 @@ const RoadMap = () => {
     return () => {};
   }, []);
   return (
-    <Section>
+    <Section id="roadmap">
       <Title>RoadMap</Title>
       <Container>
         <SavgContainer>

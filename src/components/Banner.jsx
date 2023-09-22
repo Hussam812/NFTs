@@ -11,7 +11,7 @@ import Img6 from "../assets/bighead-5.svg";
 
 const Section = styled.section`
   width: 100vw;
-  height: 25rem;
+  height: 40rem;
   position: relative;
   border-top: 2px soild ${(props) => props.theme.text};
   border-top: 2px soild ${(props) => props.theme.text};

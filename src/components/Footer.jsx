@@ -14,7 +14,6 @@ const Section = styled.section`
   position: relative;
 
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
   color: ${(props) => props.theme.text};
@@ -50,7 +49,7 @@ const IconList = styled.div`
   }
 `;
 
-const MenuItems = styled.ul`
+const Items = styled.ul`
   flex: 1;
   list-style: noen;
   width: 50%;
@@ -107,14 +106,14 @@ const Footer = () => {
             </a>
           </IconList>
         </Left>
-        <MenuItems>
-          <Item>Home</Item>
-          <Item>About </Item>
-          <Item>Roadmap</Item>
-          <Item>Showcase</Item>
-          <Item>Team</Item>
-          <Item>Faq</Item>
-        </MenuItems>
+        <Items>
+          <Item onClick={() => scrollTo("home")}>Home</Item>
+          <Item onClick={() => scrollTo("about")}>About</Item>
+          <Item onClick={() => scrollTo("roadmap")}>Roadmap</Item>
+          <Item onClick={() => scrollTo("showcase")}>Showcase</Item>
+          <Item onClick={() => scrollTo("team")}>Team</Item>
+          <Item onClick={() => scrollTo("faq")}>Faq</Item>
+        </Items>
       </Container>
       <Bottom>
         <span>

@@ -121,12 +121,12 @@ const NftItem = ({ img, number = 0, price = 0, passRef }) => {
   );
 };
 
-const ShowCase = () => {
+const ShowCase = (props) => {
   const row1Ref = useRef(null);
   const row2Ref = useRef(null);
-
+  console.log(props);
   return (
-    <Section>
+    <Section id="showcase">
       <Row direction="none" ref={row1Ref}>
         <NftItem img={Img1} number={52} price={1.2} passRef={row1Ref} />
         <NftItem img={Img2} number={123} price={1.3} passRef={row1Ref} />

@@ -8,6 +8,7 @@ import {
   Home,
   Navigation,
   RoadMap,
+  ScrollToTop,
   ShowCase,
   Team,
 } from "./components";
@@ -24,6 +25,7 @@ function App() {
         <Team />
         <Faq />
         <Footer />
+        <ScrollToTop />
       </ThemeProvider>
     </>
   );
