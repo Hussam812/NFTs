@@ -7,7 +7,7 @@ function ConfettiComponent() {
   return (
     <Confetti
       width={width}
-      height={height * 1.5}
+      height={height * 1.1}
       numberOfPieces={150}
       gravity={0.03}
     />

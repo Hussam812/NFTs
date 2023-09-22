@@ -15,3 +15,4 @@ export { default as About } from "./sections/About";
 export { default as Faq } from "./sections/Faq";
 export { default as ShowCase } from "./sections/ShowCase";
 export { default as Team } from "./sections/Team";
+export { default as Accordion } from "./sections/Accordion";
