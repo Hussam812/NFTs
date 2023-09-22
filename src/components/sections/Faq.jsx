@@ -1,8 +1,12 @@
-import React from "react";
+import { React, useLayoutEffect, useRef } from "react";
 import styled from "styled-components";
 import { Accordion } from "../";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Section = styled.section`
+  min-height: 100vh;
+
   width: 100vw;
   height: 100vh;
   background-color: ${(props) => props.theme.text};
@@ -12,6 +16,7 @@ const Section = styled.section`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  ${(props) => props.theme.body};
 `;
 const Title = styled.h1`
   font-size: ${(props) => props.theme.fontxxl};
@@ -36,8 +41,26 @@ const Box = styled.div`
 `;
 
 const Faq = () => {
+  const ref = useRef(null);
+  gsap.registerPlugin(ScrollTrigger);
+  useLayoutEffect(() => {
+    let element = ref.current;
+    ScrollTrigger.create({
+      trigger: element,
+      start: "top top",
+      end: "bottom top",
+      pin: true,
+      pinSpacing: false,
+      /*       markers: true,
+       */ scrub: true,
+    });
+
+    return () => {
+      ScrollTrigger.killAll();
+    };
+  }, []);
   return (
-    <Section>
+    <Section ref={ref}>
       <Title>Faq</Title>
       <Container>
         <Box>

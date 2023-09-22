@@ -38,7 +38,7 @@ const Indicator = styled.span`
 `;
 
 const Reveal = styled.div`
-  display: ${(props) => (props.clicked ? "block" : "none")};
+  display: ${(props) => (props.clicked === "true" ? "block" : "none")};
   margin-top: 1rem;
   color: ${(props) => `rgba(${props.theme.bodyRgba}, 0.6)`};
   font-size: ${(props) => props.theme.fontsm};
@@ -63,7 +63,7 @@ const Accordion = ({ title, children }) => {
           )}
         </Name>
       </Title>
-      <Reveal clicked={collapse}>{children}</Reveal>
+      <Reveal clicked={collapse.toString()}>{children}</Reveal>
     </Container>
   );
 };
