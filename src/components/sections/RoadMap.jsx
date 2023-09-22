@@ -6,7 +6,7 @@ import gsap from "gsap";
 
 const Section = styled.section`
   width: 100vw;
-  height: 100vh;
+  height: 200vh;
   background-color: ${(props) => props.theme.body};
   position: relative;
 `;
@@ -24,7 +24,7 @@ const Title = styled.h1`
 `;
 const Container = styled.div`
   width: 70%;
-  height: 200vh;
+  height: 100%;
   background-color: ${(props) => props.theme.body};
   margin: 0 auto;
   display: flex;
