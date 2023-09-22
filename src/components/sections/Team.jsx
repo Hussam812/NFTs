@@ -10,6 +10,7 @@ import Img6 from "../../assets/bighead-5.svg";
 import Img7 from "../../assets/bighead-6.svg";
 import Img8 from "../../assets/bighead-7.svg";
 import Img9 from "../../assets/bighead-8.svg";
+import Confetti from "../Confetti";
 
 const Section = styled.section`
   width: 100vw;
@@ -51,6 +52,8 @@ const Item = styled.div`
   position: relative;
   border: 2px solid ${(props) => props.theme.text};
   border-radius: 20px;
+  backdrop-filter: blur(4px);
+  z-index: 5;
 
   &:hover {
     img {
@@ -105,6 +108,7 @@ const MemberComponent = ({ img, name = "", position = "" }) => {
 const Team = () => {
   return (
     <Section>
+      <Confetti />
       <Title>Team</Title>
       <Container>
         <MemberComponent img={Img1} name="skyBlaze" position="founer" />
