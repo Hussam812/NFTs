@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 const Up = styled.div`
   position: fixed;
-
   width: 3rem;
   height: 3rem;
   box-sizing: border-box;

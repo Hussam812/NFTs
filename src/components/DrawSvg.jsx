@@ -35,6 +35,10 @@ const VectorContainer = styled.div`
     width: 100%;
     height: 100%;
   }
+
+  @media (max-width: 48em) {
+    left: 1rem;
+  }
 `;
 
 const DrawSvg = () => {
